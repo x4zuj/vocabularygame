@@ -11,16 +11,16 @@ answers = ["apfel", "birne", "erdbeere", "himbeere", "massentourismus", "einkauf
 print("\nWelcome to the Vocabulary trainer!") 
 input("Press ENTER to start learning vocabulary.\n") # Just some decoration
 
-def answer_process(sample_result, user_result): # Made a function so it looks cleaner and better, right?
-    answer_text = "Your answer was"
-    if user_result.lower() in sample_result:
-        answer = print("correct!\n")
+def answer_process(user_result, question_index): # Made a function so it looks cleaner and better, right?
+    if user_result.lower() == answers[question_index]:
+        answer = "correct!\n"
         return answer
     else:
-        answer = print("incorrect!\n")
+        answer = "incorrect!\n"
         return answer
 
 while True: # I made a while here so it just goes infinitely.
-    question = random.choice(vocabulary)
-    user_answer = input(f"Tell me the german word of the Vocabulary: {question}.\n > ")
-    answer_process(sample_result=answers, user_result=user_answer)
+    question_index = random.randint(0, 7)
+    user_answer = input(f"Tell me the german word of the Vocabulary: {vocabulary[question_index]}.\n > ")
+    answer_type = answer_process(user_result=user_answer, question_index=question_index)
+    print(f"Your answer was {answer_type}")
