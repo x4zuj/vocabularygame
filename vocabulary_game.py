@@ -12,15 +12,13 @@ print("\nWelcome to the Vocabulary trainer!")
 input("Press ENTER to start learning vocabulary.\n") # Just some decoration
 
 def answer_process(sample_result, user_result): # Made a function so it looks cleaner and better, right?
-    sample = sample_result
-    result = user_result
     answer_text = "Your answer was"
-    if result.lower() in sample:
-        answer = "correct.\n"
-        return print(answer_text,answer)
+    if user_result.lower() in sample_result:
+        answer = print("correct!\n")
+        return answer
     else:
-        answer = "incorrect.\n"
-        return print(answer_text,answer)
+        answer = print("incorrect!\n")
+        return answer
 
 while True: # I made a while here so it just goes infinitely.
     question = random.choice(vocabulary)
